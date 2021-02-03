@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>My Project</title>
+    <link rel="stylesheet" href="kar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi+2|Montserrat:700|Open+Sans&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  </head>
+  <body style="background-color:#DEDEDE;"><br>
+
+    <input type="checkbox" id="check">
+    <label for="check">
+      <i class="fas fa-bars" id="btn"></i>
+      <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+      <header>My App</header>
+      <a href="#" class="active">
+        <i class="fas fa-qrcode"></i>
+        <span>Dashboard</span>
+      </a>
+      <a href="#">
+        <i class="fas fa-link"></i>
+        <span>Forms</span>
+      </a>
+      <a href="#">
+        <i class="fas fa-stream"></i>
+        <span>UI Features</span>
+      </a>
+      <a href="#">
+         <i class="fas fa-calendar"></i>
+        <span>Tables</span>
+      </a>
+      <a href="#">
+        <i class="far fa-question-circle"></i>
+        <span>Charts</span>
+      </a>
+      <a href="#">
+        <i class="fas fa-sliders-h"></i>
+        <span>Sample Pages</span>
+      </a>
+      <a href="#">
+        <i class="far fa-envelope"></i>
+        <span>Documentation</span>
+      </a>
+    </div>
+    <div class="navbar">
+  <a class="active" href="#"><i class="fas fa-download"></i></a> 
+  <a href="#"><i class="fa fa-fw fa-envelope"></i></a> 
+  <a href="#"><i class="fas fa-bell"></i></a>
+  <a href="#"><i class="fas fa-cog"></i></a>
+  <img src="pk.jpg" alt="Avatar" class="avatar">
+
+
+</div>
+
+<center><h2 style="color:black; font-family: 'Montserrat', sans-serif;">Wellcome AAHRS</h2></center>
+
+
+    
+
+<main>
+  <div class="div1"> <h2 style="color:black; font-family:'Open Sans', sans-serif;"> Switch </h2>
+<br><span><h2 style="color:black; font-family: 'Montserrat', sans-serif;">24 hours open?</h2>
+<label class="switch"><br>
+  <input type="checkbox">
+  <span class="slider round"></span></span>
+</label></center>
+<!--
+<label class="switch">
+  <input type="checkbox" checked>
+  <span class="slider round"></span>
+</label> 
+
+<label class="switch">
+  <input type="checkbox">
+  <span class="slider round"></span>
+</label>
+
+<label class="switch">
+  <input type="checkbox" checked>
+  <span class="slider round"></span>
+</label>
+
+<label class="switch">
+  <input type="checkbox">
+  <span class="slider round"></span>
+</label>
+
+<label class="switch">
+  <input type="checkbox" checked>
+  <span class="slider round"></span>
+</label> <br><br>
+
+<label class="switch">
+  <input type="checkbox" checked>
+  <span class="slider round"></span>
+</label> 
+
+<label class="switch">
+  <input type="checkbox" >
+  <span class="slider round"></span>
+</label> 
+
+<label class="switch">
+  <input type="checkbox" checked>
+  <span class="slider round"></span>
+</label>-->
+
+
+
+</div>
+  
+
+
+  
+
+
+
+  <div class="div2"> <h2 style="color:black; font-family:'Open Sans', sans-serif;">Select Menu</h2>
+<br><center>
+
+<div class="custom-select" style="width:210px; font-family: 'Raleway', sans-serif;">
+          <select>
+            <option value="0">Depatrments</option>option>
+            <option value="1">Oncology</option>
+            <option value="2">Orthopaedics</option>
+            <option value="3">Physiotherapy</option>
+            <option value="4">Urology</option>
+          
+          </select>
+</div>
+
+
+<script>
+var x, i, j, selElmnt, a, b, c;
+/*look for any elements with the class "custom-select":*/
+x = document.getElementsByClassName("custom-select");
+for (i = 0; i < x.length; i++) {
+  selElmnt = x[i].getElementsByTagName("select")[0];
+  /*for each element, create a new DIV that will act as the selected item:*/
+  a = document.createElement("DIV");
+  a.setAttribute("class", "select-selected");
+  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+  x[i].appendChild(a);
+  /*for each element, create a new DIV that will contain the option list:*/
+  b = document.createElement("DIV");
+  b.setAttribute("class", "select-items select-hide");
+  for (j = 1; j < selElmnt.length; j++) {
+    /*for each option in the original select element,
+    create a new DIV that will act as an option item:*/
+    c = document.createElement("DIV");
+    c.innerHTML = selElmnt.options[j].innerHTML;
+    c.addEventListener("click", function(e) {
+        /*when an item is clicked, update the original select box,
+        and the selected item:*/
+        var y, i, k, s, h;
+        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+        h = this.parentNode.previousSibling;
+        for (i = 0; i < s.length; i++) {
+          if (s.options[i].innerHTML == this.innerHTML) {
+            s.selectedIndex = i;
+            h.innerHTML = this.innerHTML;
+            y = this.parentNode.getElementsByClassName("same-as-selected");
+            for (k = 0; k < y.length; k++) {
+              y[k].removeAttribute("class");
+            }
+            this.setAttribute("class", "same-as-selected");
+            break;
+          }
+        }
+        h.click();
+    });
+    b.appendChild(c);
+  }
+  x[i].appendChild(b);
+  a.addEventListener("click", function(e) {
+      /*when the select box is clicked, close any other select boxes,
+      and open/close the current select box:*/
+      e.stopPropagation();
+      closeAllSelect(this);
+      this.nextSibling.classList.toggle("select-hide");
+      this.classList.toggle("select-arrow-active");
+    });
+}
+function closeAllSelect(elmnt) {
+  /*a function that will close all select boxes in the document,
+  except the current select box:*/
+  var x, y, i, arrNo = [];
+  x = document.getElementsByClassName("select-items");
+  y = document.getElementsByClassName("select-selected");
+  for (i = 0; i < y.length; i++) {
+    if (elmnt == y[i]) {
+      arrNo.push(i)
+    } else {
+      y[i].classList.remove("select-arrow-active");
+    }
+  }
+  for (i = 0; i < x.length; i++) {
+    if (arrNo.indexOf(i)) {
+      x[i].classList.add("select-hide");
+    }
+  }
+}
+/*if the user clicks anywhere outside the select box,
+then close all select boxes:*/
+document.addEventListener("click", closeAllSelect);
+</script> </div>
+  
+
+
+
+  <div class="div3"> <h2 style="color:black; font-family: 'Open Sans', sans-serif;"> Text field </h2>
+  <br><center><br><br>
+  <h3 style="color:black; font-family: 'Baloo Thambi 2', cursive;">Number of Beds <input type="Text" placeholder="Beds" name="Name" id="Name"></font>
+    
+ <!-- <font color="black"size="4">Facilities<textarea rows="5" cols="50 name="des"></textarea></font>-->
+             
+
+</div>
+  
+</div>
+<div class="div3"> <h2 style="color:black; font-family: 'Open Sans', sans-serif;"> Hospital Facility Section </h2>
+  <br><center>
+<font color="black"size="4">Facilities<br><textarea rows="6" cols="60 name="des" placeholder="Facilities."></textarea></font>
+</center>
+</div>
+
+
+  
+  <div class="div4">
+    
+    <h2 style="color:black; font-family: 'Open Sans', sans-serif;">Checkbox</h2>
+<br><center>
+
+<label class="container">Basic Level
+    <input type="checkbox" checked="checked">
+    <span class="checkmark"></span>
+</label>
+<label class="container">Medium Level
+    <input type="checkbox" checked="checked">
+    <span class="checkmark"></span>
+</label>
+<label class="container">High Level
+    <input type="checkbox" checked="checked">
+    <span class="checkmark"></span>
+</label>
+<!--<label class="container">Secondary
+    <input type="checkbox">
+    <span class="checkmark"></span>
+</label> <label class="container">Success
+    <input type="checkbox" checked="checked">
+    <span class="checkmark"></span>
+</label>
+<label class="container">Info
+    <input type="checkbox" checked="checked">
+    <span class="checkmark"></span>
+</label>
+<label class="container">Warning
+    <input type="checkbox">
+    <span class="checkmark"></span>
+</label>
+<label class="container">Light
+    <input type="checkbox" checked="checked">
+    <span class="checkmark"></span>
+</label><label class="container">Dark
+    <input type="checkbox">
+    <span class="checkmark"></span>
+</label>
+<label class="container">Custom colored
+    <input type="checkbox" checked="checked">
+    <span class="checkmark"></span>
+</label>-->
+
+
+
+ </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
